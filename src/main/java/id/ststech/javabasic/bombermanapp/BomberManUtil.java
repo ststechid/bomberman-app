@@ -101,12 +101,12 @@ public class BomberManUtil {
 		String[] tokens = command.split(" ");
 		if (tokens.length >= 1) {
 			switch (tokens[0]) {
-			case "bomb":
-			case "fire":
-			case "boot":
-			case "kick":
-			case "throw":
-			case "poison":
+			case ActionConstants.BOMB:
+			case ActionConstants.FIRE:
+			case ActionConstants.BOOT:
+			case ActionConstants.KICK:
+			case ActionConstants.THROW:
+			case ActionConstants.POISON:
 				// Make sure minimal 3 tokens
 				if (tokens.length != 3) {
 					return false;
@@ -114,9 +114,9 @@ public class BomberManUtil {
 
 				// Validate 3nd token must +/-
 				switch (tokens[0]) {
-				case "bomb":
-				case "fire":
-				case "boot":
+				case ActionConstants.BOMB:
+				case ActionConstants.FIRE:
+				case ActionConstants.BOOT:
 					switch (tokens[2]) {
 					case "+":
 					case "-":
@@ -125,9 +125,9 @@ public class BomberManUtil {
 					default:
 						return false;
 					}
-				case "kick":
-				case "throw":
-				case "poison":
+				case ActionConstants.KICK:
+				case ActionConstants.THROW:
+				case ActionConstants.POISON:
 					switch (tokens[2]) {
 					case "+":
 					case "-":
@@ -185,4 +185,17 @@ public class BomberManUtil {
 		// Cannot find the specified playerName, return null
 		return null;
 	}
+	
+	
+	
+	public class ActionConstants {
+		
+		public final static String BOMB = "bomb";
+		public final static String FIRE = "fire";
+		public final static String BOOT = "boot";
+		public final static String KICK = "kick";
+		public final static String THROW = "throw";
+		public final static String POISON = "poison";
+	}
+	
 }
